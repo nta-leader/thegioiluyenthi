@@ -99,9 +99,10 @@ Route::namespace('Shop')->group(function(){
 			'uses'=>'CartController@check',
 			'as'=>'shop.cart.check'
 		]);
-		Route::get('code',function(){
-			return Session::get('cart');
-		});
+		Route::post('code',[
+			'uses'=>'CartController@check_code',
+			'as'=>'shop.cart.check_code'
+		]);
 	});
 	Route::prefix('user')->middleware('auth')->group(function(){
 		Route::get('index',[
@@ -378,6 +379,11 @@ Route::namespace('Admin')->prefix('admincp')->middleware('auth')->group(function
 			'uses'=>'CartController@tru',
 			'as'=>'admin.donhang.tru'
 		]);
+		Route::get('del/{id_cart}',[
+			'uses'=>'CartController@del',
+			'as'=>'admin.donhang.del'
+		])->middleware('role:admin');
+
 		Route::post('email',[
 			'uses'=>'DonhangController@email',
 			'as'=>'admin.donhang.email'
@@ -386,10 +392,7 @@ Route::namespace('Admin')->prefix('admincp')->middleware('auth')->group(function
 			'uses'=>'DonhangController@timkiem',
 			'as'=>'admin.donhang.timkiem'
 		]);
-		Route::get('del/{id}',[
-			'uses'=>'DonhangController@del',
-			'as'=>'admin.donhang.del'
-		])->middleware('role:admin');
+		
 	});
 	Route::prefix('slide')->group(function(){
 		Route::get('index',[

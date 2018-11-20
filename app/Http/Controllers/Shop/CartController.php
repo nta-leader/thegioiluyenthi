@@ -115,10 +115,14 @@ class CartController extends Controller
         if($req->thanhtoan > 1 || $req->thanhtoan < 0){
             return redirect()->back();
         }
-        if($req->session()->has('gioithieu')){
-            $gioithieu=$req->session()->get('gioithieu');
-            if($gioithieu==$auth->username){
-                $gioithieu=null;
+        if($req->code != '' && $req->code != $auth->username){
+            $gioithieu=$req->code;
+        }else{
+            if($req->session()->has('gioithieu')){
+                $gioithieu=$req->session()->get('gioithieu');
+                if($gioithieu==$auth->username){
+                    $gioithieu=null;
+                }
             }
         }
         $arItem=[
@@ -135,16 +139,7 @@ class CartController extends Controller
         ];
         //dd($cart);
         DB::table('cart')->insertGetId($arItem);
-        $item=DB::table('cart')
-        ->where('username',$auth->username)
-        ->where('name',$req->name)
-        ->where('email',$req->email)
-        ->where('phone',$req->phone)
-        ->where('address',$req->address)
-        ->where('comment',$req->comment)
-        ->where('gioithieu',$gioithieu)
-        ->where('active',0)->orderBy('id_cart','DESC')->first();
-        $id_cart=$item->id_cart;
+        $id_cart= DB::getPdo()->lastInsertId();
         foreach($cart as $item){
             $item['id_cart']=$id_cart;
             $item['active']=1;
@@ -177,6 +172,7 @@ class CartController extends Controller
         });
         return view('shop.cart.success');
     }
+    //kiem tra thanh toan tai khoan web
     public function check(){
         $auth=Auth::user();
         $sodu=$auth->money;
@@ -185,6 +181,19 @@ class CartController extends Controller
             return "<span style='color:red;'>Số dư hợp lệ !</span>";
         }else{
             return "<script>document.getElementById('taikhoanweb').innerHTML = '<b><i>Tài khoản web không đủ !</i></b>';</script>";
+        }
+    }
+    public function check_code(Request $req){
+        $auth=Auth::user();
+        $code=$req->code;
+        if($code == $auth->username){
+            return 2;
+        }
+        $check=DB::table('users')->where('username',$code)->count();
+        if($check==1){
+            return 1;
+        }else{
+            return 0;
         }
     }
 }

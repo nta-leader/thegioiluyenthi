@@ -134,4 +134,9 @@ class CartController extends Controller
         $objItem=$objCart;
         return view('admin.cart.view',compact('objItem'));
     }
+    public function del($id_cart,Request $req){
+		if($this->cart->del($id_cart)){
+            return redirect()->back()->with(['msg'=>'Xóa thành công !']);
+        }
+	}
 }

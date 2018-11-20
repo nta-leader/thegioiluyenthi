@@ -84,5 +84,5 @@ class CatController extends Controller
         $arItem=$cat->getDMC($id,$data,$arItem);
         $count=$sanpham->getList_cat($arItem);
         return view('admin.cat.check',compact('id','count'));
-    }
+    }z
 }

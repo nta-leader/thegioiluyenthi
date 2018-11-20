@@ -240,12 +240,12 @@
                                         <div class="col-sm-12">
                                             <span id="show_notice_coupon"></span>
                                             <div class="input-group">
-                                                <input type="text" name="coupon" value="" placeholder="Nhập mã giới thiệu" id="input-coupon" class="form-control">
+                                                <input id="code" type="text" name="code" value="" placeholder="Nhập mã giới thiệu" id="input-coupon" class="form-control">
                                                 <span class="input-group-btn">
-                                                    <input class="btn btn-primary" type="button" value="Áp dụng" id="button-coupon" data-loading-text="Đang áp dụng">
+                                                    <input onclick="check_code()" class="btn btn-primary" type="button" value="Áp dụng" id="button-coupon" data-loading-text="Đang áp dụng">
                                                 </span>
                                             </div>
-                                            <span id="load-input-hidden"></span>
+                                            <p style="color:red;margin-top: 20px;margin-bottom: -3px;margin-left: 16px;" id="check_code"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -310,6 +310,39 @@
                 document.getElementById("thongbao").style.display = "block";
                 document.getElementById("loading").style.display = "none";
                 $('#noidung').html(data);
+            },
+            error: function (){
+                alert('Có lỗi xảy ra');
+            }
+        });
+    }
+    function check_code(){
+        document.getElementById("loading").style.display = "block";
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '{{route('shop.cart.check_code')}}',
+            type: 'post',
+            cache: false,
+            data: {
+                code: document.getElementById("code").value,
+            },
+            success: function(data){
+                document.getElementById("thongbao").style.display = "block";
+                document.getElementById("loading").style.display = "none";
+                if(data == 1){
+                    $('#check_code').html('Mã giới thiệu hợp lệ !');
+                    $('#check_code').css("color","#1891c3");
+                }else if(data == 0){
+                    $('#check_code').html('Mã giới thiệu không tồn tại !');
+                    $('#code').val("");
+                }else{
+                    $('#check_code').html('Bạn không thể giới thiệu cho chính bạn !');
+                    $('#code').val("");
+                }
             },
             error: function (){
                 alert('Có lỗi xảy ra');

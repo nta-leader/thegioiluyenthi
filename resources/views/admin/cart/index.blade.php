@@ -51,6 +51,7 @@
                             $active=$objItem->active;
                             $detail=$objItem->detail;
                             $tong=0;
+                            $urlDel=route('admin.donhang.del',['id_cart'=>$id_cart]);
                         @endphp
                             <tr class="gradeX">
                                 <td>{{$id_cart}}</td>
@@ -119,7 +120,7 @@
                                 <td class="center">
                                     <center>
                                     <a href="javascript:void(0)" onclick="view('{{$id_cart}}')" class="btn btn-primary" data-toggle="modal" data-target="#modal-login">Xem</a>
-                                    <a href="" onclick="return confirm('Bạn có muốn xóa không !')" class="btn btn-danger"><i class="fa fa-pencil"></i> Xóa</a>
+                                    <a href="{{$urlDel}}" onclick="return confirm('Bạn có muốn xóa không !')" class="btn btn-danger"><i class="fa fa-pencil"></i> Xóa</a>
                                     </center>
                                     
                                 </td>

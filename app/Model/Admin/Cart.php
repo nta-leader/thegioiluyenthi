@@ -25,4 +25,8 @@ class Cart extends Model
     public function getAll_cart_detail($id_cart){
         return DB::table('cart_detail')->where('id_cart',$id_cart)->get();
     }
+    public function del($id_cart){
+        DB::table('cart_detail')->where('id_cart',$id_cart)->delete();
+        return $this->where('id_cart',$id_cart)->delete();
+    }
 }
