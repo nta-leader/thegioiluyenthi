@@ -120,7 +120,7 @@
 										$text=editString($namesp);
 										$url=route('shop.sanpham.index',['namesanpham'=>$text,'id'=>$id_sp]);
 									@endphp
-									<div class="col-xs-6 col-sm-4 col-md-4 col-lg-20 custom-mobile">
+									<div class="col-xs-6 col-sm-4 col-md-4 col-lg-20 custom-mobile mb_margin">
 										<div class="wrp_item_small product-col">
 											<div class="product-box">
 												<div class="product-thumbnail">
@@ -185,7 +185,7 @@
 										$text=editString($namesp);
 										$url=route('shop.sanpham.index',['namesanpham'=>$text,'id'=>$id_sp]);
 									@endphp
-									<div class="col-xs-6 col-sm-4 col-md-4 col-lg-20 custom-mobile">
+									<div class="col-xs-6 col-sm-4 col-md-4 col-lg-20 custom-mobile mb_margin">
 										<div class="wrp_item_small product-col">
 											<div class="product-box">
 												<div class="product-thumbnail">
@@ -315,7 +315,7 @@
 											$text=editString($namesp);
 											$url=route('shop.sanpham.index',['namesanpham'=>$text,'id'=>$id_sp]);
 										@endphp
-										<div class="col-xs-6 col-sm-4 col-md-4 col-lg-20 custom-mobile">
+										<div class="col-xs-6 col-sm-4 col-md-4 col-lg-20 custom-mobile mb_margin">
 											<div class="wrp_item_small product-col">
 												<div class="product-box">
 													<div class="product-thumbnail">

@@ -1,3 +1,21 @@
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="375354749559500"
+  theme_color="#fa3c4c"
+  logged_in_greeting="Chào bạn ! Bạn muốn chúng tôi hỗ trợ gì ?"
+  logged_out_greeting="Chào bạn ! Bạn muốn chúng tôi hỗ trợ gì ?">
+</div>
 <footer class="footer">
         <div class="site-footer">
             <div class="newsletter-footer">
@@ -8,7 +26,7 @@
                         </div>
                         <div class="block-subscribe col-md-6 col-sm-12 col-xs-12">
                             <div class="footer-widget no-border">
-                                <form action="https://bigboom.myzozo.net/index.php?route=tool/newsletter" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                                <form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
                                     <input type="email" value="" class="email" placeholder="Nhập email tại đây..." name="email" id="mail-footer" aria-label="">
                                     <button class="btn subscribe" name="subscribe" id="subscribe-footer">
                                         <span>Đăng ký!</span>
@@ -63,15 +81,15 @@
                             <h4 class="title-menu" style="font-family: Roboto, HelveticaNeue, &quot;Helvetica Neue&quot;, sans-serif; font-weight: bold; line-height: normal; color: rgb(54, 54, 54); margin: 40px 0px 30px; font-size: 16px; letter-spacing: 0.5px; cursor: default; position: relative; background-color: rgb(245, 245, 245);">Hệ thống cửa hàng</h4>
                             <h4 class="title-menu4 icon_none_first" style="font-family: Roboto, HelveticaNeue, &quot;Helvetica Neue&quot;, sans-serif; line-height: normal; color: rgb(255, 255, 255); margin: 10px 0px 5px; font-size: 1.28571em; letter-spacing: 0.5px; position: relative;"><a style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(112, 112, 112); transition: all 150ms ease-in-out; font-weight: bold; cursor: default; font-size: 14px; position: relative;">Trụ sở TP.Hồ Chí Minh:</a></h4>
                             <h4 class="title_block" style="font-family: Arial, sans-serif; line-height: 18px; text-transform: uppercase; margin-right: 0px; margin-bottom: 20px; margin-left: 0px; font-size: 18px; position: relative;"><div class="collapse1" id="collapseListMenu01" style="color: rgb(85, 85, 85); font-family: Roboto, HelveticaNeue, &quot;Helvetica Neue&quot;, sans-serif; font-size: 14px; text-transform: none; background-color: rgb(245, 245, 245);"><div class="list-menu" style="line-height: 30px;"><div class="widget-ft wg-logo" style="margin-bottom: 20px;"><div class="item"><ul class="contact contact_x" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none outside;"><li style="font-family: Arial, sans-serif; position: relative; color: rgb(112, 112, 112); margin-bottom: 20px; line-height: 20px;"><span class="txt_content_child" style="display: inherit;">180 - 182 Lý Chính Thắng, Phường 9, Q.3</span></li></ul></div></div></div></div></h4>
-                            <h4 class="title-menu4 icon_none_first" style="font-family: Roboto, HelveticaNeue, &quot;Helvetica Neue&quot;, sans-serif; line-height: normal; color: rgb(255, 255, 255); margin: 10px 0px 5px; font-size: 1.28571em; letter-spacing: 0.5px; position: relative;"><a style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(112, 112, 112); transition: all 150ms ease-in-out; font-weight: bold; cursor: default; font-size: 14px; position: relative;">Chi nhánh Hà Nội</a></h4>
-                            <h4 class="title_block" style="font-family: Arial, sans-serif; line-height: 18px; text-transform: uppercase; margin-right: 0px; margin-bottom: 20px; margin-left: 0px; font-size: 18px; position: relative;"><div class="collapse1" style="color: rgb(85, 85, 85); font-family: Roboto, HelveticaNeue, &quot;Helvetica Neue&quot;, sans-serif; font-size: 14px; text-transform: none; background-color: rgb(245, 245, 245);"><div class="list-menu" style="line-height: 30px;"><div class="widget-ft wg-logo" style="margin-bottom: 20px;"><div class="item"><ul class="contact contact_x" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none outside;"><li style="font-family: Arial, sans-serif; position: relative; color: rgb(112, 112, 112); margin-bottom: 20px; line-height: 20px;"><span class="txt_content_child" style="display: inherit;">Tầng 4, số 01, ngõ 120 Trường Chinh, Phương Mai, Q.Đống Đa, Hà Nội</span></li></ul></div></div></div></div></h4> </div>
+                            <h4 class="title-menu4 icon_none_first" style="font-family: Roboto, HelveticaNeue, &quot;Helvetica Neue&quot;, sans-serif; line-height: normal; color: rgb(255, 255, 255); margin: 10px 0px 5px; font-size: 1.28571em; letter-spacing: 0.5px; position: relative;"><a style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(112, 112, 112); transition: all 150ms ease-in-out; font-weight: bold; cursor: default; font-size: 14px; position: relative;">Chi nhánh Đà Nẵng</a></h4>
+                            <h4 class="title_block" style="font-family: Arial, sans-serif; line-height: 18px; text-transform: uppercase; margin-right: 0px; margin-bottom: 20px; margin-left: 0px; font-size: 18px; position: relative;"><div class="collapse1" style="color: rgb(85, 85, 85); font-family: Roboto, HelveticaNeue, &quot;Helvetica Neue&quot;, sans-serif; font-size: 14px; text-transform: none; background-color: rgb(245, 245, 245);"><div class="list-menu" style="line-height: 30px;"><div class="widget-ft wg-logo" style="margin-bottom: 20px;"><div class="item"><ul class="contact contact_x" style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none outside;"><li style="font-family: Arial, sans-serif; position: relative; color: rgb(112, 112, 112); margin-bottom: 20px; line-height: 20px;"><span class="txt_content_child" style="display: inherit;">132 Nguyễn Đức Trung , Quận Thanh Khê , TP: Đà Nẵng</span></li></ul></div></div></div></div></h4> </div>
                         <div class="col-xs-12 col-sm-5 col-md-3">
                             <div class="widget-ft">
                                 <h4 class="title-menu tittle_time">Điện thoại:</h4>
                                 <div class="time_work">
                                     <ul class="list-menu">
                                         <li class="li_menu li_menu_xxx">
-                                            <a class="rc yeloww" href="tel:0123 456 789">0123 456 789</a>
+                                            <a class="rc yeloww" href="tel:0905.668.662">0905 668 662</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -81,7 +99,7 @@
                                 <div class="social_content">
                                     <ul class="list-unstyled">
                                         <li class="facebook">
-                                            <a href="https://www.facebook.com/FacebookVietnam" target="_blank"><i class="fa fa-facebook"></i></a>
+                                            <a href="https://www.facebook.com/thegioiluyenthi/" target="_blank"><i class="fa fa-facebook"></i></a>
                                         </li>
                                         <li class="twitter">
                                             <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -124,7 +142,7 @@
                         <div class="col-xs-12 col-sm-7 col-md-3">
                             <div class="widget-ft">
                                 <h4 class="title-menu"></h4>
-                                <div class="fb-page" data-href="https://www.facebook.com/FacebookVietnam" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+                                <div class="fb-page" data-href="https://www.facebook.com/thegioiluyenthi/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
                             </div>
                         </div>
                     </div>
@@ -135,7 +153,7 @@
                     <div class="inner clearfix">
                         <div class="row tablet">
                             <div id="copyright" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 a-center fot_copyright">
-                                <span class="wsp">&copy; Copyright 2018 BigBoom. Thiết kế bởi <a target="_blank" href="https://www.zozo.vn/?utm_source=bigboom.myzozo.net&amp;utm_medium=referral&amp;utm_campaign=copyrightwebdesign&amp;utm_term=footerurl&amp;utm_content=footer">Zozo</a></span>
+                                <span class="wsp">&copy; Copyright 2018</span>
                             </div>
                         </div>
                     </div>
@@ -297,5 +315,6 @@
         }
     </script>
     @yield('js')
+
 </body>
 </html>
