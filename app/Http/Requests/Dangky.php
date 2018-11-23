@@ -24,7 +24,7 @@ class Dangky extends FormRequest
     public function rules()
     {
         return [
-            'username'=>'required | unique:users,username',
+            'username'=>'required|unique:users,username|regex:/^[A-Za-z0-9_\.]{6,32}$/',
             'password'=>'required | min:6',
             'password2'=>'required | same:password',
             'fullname'=>'required',
@@ -38,6 +38,7 @@ class Dangky extends FormRequest
         return [
             'username.required'=>'Vui lòng nhập tài khoản !',
             'username.unique'=>'Tài khoản đã có người sử dụng !',
+            'username.regex'=>'Tài khoản phải viết liền không đấu và không chứa ký tự đặc biệt !',
             'password.required'=>'Vui lòng nhập mật khẩu',
             'password.min'=>'Mật khẩu tối thiểu 6 ký tự',
             'password2.required'=>'Vui lòng nhập mật khẩu',

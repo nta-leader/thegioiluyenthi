@@ -66,7 +66,7 @@
                         <div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-firstname">Tên tài khoản</label>
                             <div class="col-sm-10">
-                                <input type="text" name="username" value="{{old('username')}}" placeholder="Tên tài khoản" id="input-firstname" >
+                                <input type="text" name="username" value="{{old('username')}}" placeholder="Nhập tên tài khoản" id="input-firstname" class="form-control" >
                             </div>
                         </div>
                         @if($errors->has('password'))
@@ -86,7 +86,7 @@
 						<div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-password">Mật khẩu</label>
                             <div class="col-sm-10">
-                                <input type="password" name="password" value="" placeholder="Mật khẩu" id="input-password" class="form-control">
+                                <input type="password" name="password" value="" placeholder="Nhập mật khẩu" id="input-password" class="form-control">
                             </div>
                         </div>
                         @if($errors->has('password2'))
@@ -106,7 +106,7 @@
                         <div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-confirm">Mật khẩu xác nhận</label>
                             <div class="col-sm-10">
-                                <input type="password" name="password2" value="" placeholder="Mật khẩu xác nhận" id="input-confirm" class="form-control">
+                                <input type="password" name="password2" value="" placeholder="Nhập lại mật khẩu" id="input-confirm" class="form-control">
                             </div>
                         </div>
                         @if($errors->has('fullname'))
@@ -146,7 +146,7 @@
                         <div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-email">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" name="email" value="{{old('email')}}" placeholder="Email" id="input-email" class="form-control">
+                                <input type="email" name="email" value="{{old('email')}}" placeholder="Nhập email" id="input-email" class="form-control">
                             </div>
                         </div>
                         @if($errors->has('phone'))
@@ -166,7 +166,7 @@
                         <div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-telephone">Điện thoại</label>
                             <div class="col-sm-10">
-                                <input type="number" name="phone" value="{{old('phone')}}" placeholder="Điện thoại" id="input-telephone" class="form-control">
+                                <input type="number" name="phone" value="{{old('phone')}}" placeholder="Nhập số điện thoại" id="input-telephone" class="form-control">
                             </div>
                         </div>
                         @if($errors->has('address'))
@@ -186,7 +186,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="input-fax">Địa chỉ</label>
                             <div class="col-sm-10">
-                                <input type="text" name="address" value="{{old('address')}}" placeholder="Địa chỉ" id="input-fax" class="form-control">
+                                <input type="text" name="address" value="{{old('address')}}" placeholder="Nhập địa chỉ" id="input-fax" class="form-control">
                             </div>
                         </div>
                         <div class="buttons">

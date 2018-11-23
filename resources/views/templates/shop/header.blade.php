@@ -56,6 +56,42 @@
                     <li class="level0 level-top parent level_ico">
                         <a href="{{route('shop.contact.index')}}">Liên hệ</a>
                     </li>
+                    @php
+                        $auth=Auth::user();
+                    @endphp
+                    @if(isset($auth->username))
+                    <li class="level0 level-top parent level_ico">
+                        <a>Tài khoản</a>
+                        <i class="ti-plus hide_close fa fa-sort-down"></i>
+                        <ul class="level0 sub-menu" style="display:none;">
+                            <li class="level1">
+                                <a class="nav-link " href="">
+                                    Thông tin tài khoản
+                                </a>
+                            </li>
+                            <li class="level1">
+                                <a class="nav-link " href="{{route('shop.user.donhang')}}">
+                                    Các đơn hàng đã đặt
+                                </a>
+                            </li>
+                            <li class="level1">
+                                <a class="nav-link " href="{{route('shop.user.donhang_gioithieu')}}">
+                                    Các đơn hàng bạn giới thiệu
+                                </a>
+                            </li>
+                            <li class="level1">
+                                <a class="nav-link " href="{{route('shop.user.history')}}">
+                                    Lịch sử
+                                </a>
+                            </li>
+                            <li class="level1">
+                                <a class="nav-link " href="">
+                                    Đổi mật khẩu
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -63,7 +99,7 @@
     <header class="header">
         <div class="top-banner hidden-sm hidden-xs">
             <a href="index.html">
-                <img class="img-responsive" src="{{$urlShop}}/image/cache/catalog/banner/img-top-banner-0x0.jpg" alt="BigBoom">
+                <img class="img-responsive" src="{{$urlShop}}/image/cache/catalog/banner/img-top-banner-0x0.jpg">
             </a>
         </div>
         <div class="topbar">
@@ -73,9 +109,6 @@
                     <div class="col-md-6 col-sm-6 d-list col-xs-12 a-right topbar_right">
                         <div class="list-inline a-center f-right">
                             <ul>
-                                @php
-                                    $auth=Auth::user();
-                                @endphp
                                 @if(isset($auth->username))
                                 <li>
                                     <a title="{{$auth->money}}đ" class="account_a">
