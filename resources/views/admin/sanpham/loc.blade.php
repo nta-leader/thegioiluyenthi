@@ -10,12 +10,14 @@
     $chiase=$objItem->chiase;
     $daban=$objItem->daban;
     $trangthai=$objItem->active;
+    $ma_sp=$objItem->ma_sp;
     $urlEdit=route('admin.sanpham.edit',['id'=>$id]);
     $urlDel=route('admin.sanpham.del',['id'=>$id]);
     $urlAnh=route('admin.sanpham.anh',['id'=>$id]);
 @endphp
     <tr class="gradeX">
         <td>{{$id}}</td>
+        <td>{{$ma_sp}}</td>
         <td style="width:15%;">{{$namesp}}</td>
         <td>{{number_format($gia,0)}}đ</td>
         <td>

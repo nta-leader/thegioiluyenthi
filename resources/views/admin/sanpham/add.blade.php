@@ -85,6 +85,10 @@ $(document).ready(function(){
                                 <input type="text" name="name" value="{!! old('name') !!}" class="form-control" />
                             </div>
                             <div class="form-group">
+                                <label>Mã sản phẩm</label>
+                                <input type="text" name="ma_sp" value="{!! old('ma_sp') !!}" class="form-control" />
+                            </div>
+                            <div class="form-group">
                                 <label>Giá</label>
                                 <input id="gia" type="number" min=0 name="gia" value="{!! old('gia') !!}" class="form-control" />
                                 <p id="view_gia" style="padding: 1px 12px;color:red;"></p>
@@ -137,5 +141,4 @@ $(document).ready(function(){
         <!-- End Form Elements -->
     </div>
 </div>
-
 @endsection

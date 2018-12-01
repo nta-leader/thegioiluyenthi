@@ -25,6 +25,7 @@ class addSanpham extends FormRequest
     {
         return [
             'name'=>'required | unique:sanpham,namesp',
+            'ma_sp'=>'required | unique:sanpham,ma_sp',
             'id_cat'=>'required',
             'chiase'=>'required',
             'picture'=>'required',
@@ -39,6 +40,8 @@ class addSanpham extends FormRequest
         return [
             'name.required'=>'Vui lòng nhập tên sản phẩm !',
             'name.unique'=>'Tên sản phẩm bị trùng !',
+            'ma_sp.required'=>'Vui lòng nhập mã sản phẩm !',
+            'ma_sp.unique'=>'Mã sản phẩm bị trùng !',
             'id_cat.required'=>'Vui lòng chọn danh mục !',
             'picture.required'=>'Vui lòng chọn một bức ảnh !',
             'chiase.required'=>'Vui lòng chọn một mức chia sẻ !',

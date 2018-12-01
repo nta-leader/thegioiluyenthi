@@ -29,6 +29,7 @@
 
 @php
     $id_sp=$objItem_sp->id_sp;
+    $ma_sp=$objItem_sp->ma_sp;
     $namesp=$objItem_sp->namesp;
     $preview=$objItem_sp->preview_text;
     $picture=$objItem_sp->picture;
@@ -114,7 +115,7 @@
                                 </div>
                                 <div class="group-status">
                                     <span class="first_status">Mã sản phẩm:
-                                        <span class="status_name">{{$id_sp}}</span>
+                                        <span class="status_name">{{$ma_sp}}</span>
                                     <span class="space">&nbsp; | &nbsp;</span>
                                     </span>
                                     <span class="first_status">

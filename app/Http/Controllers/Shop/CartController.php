@@ -29,6 +29,7 @@ class CartController extends Controller
         }
         $objItem=$this->Sanpham->getItem($id_sp);
         $cart[$id_sp]=[
+            'ma_sp'=>$objItem->ma_sp,
             'id_sp'=>$id_sp,
             'namesp'=>$objItem->namesp,
             'picture'=>$objItem->picture,
@@ -37,6 +38,7 @@ class CartController extends Controller
             'chiase'=>$objItem->chiase,
             'soluong'=>1
         ];
+        //Số lượng lọa sản phẩm
         $soluong+=1;
         $req->session()->put('soluong',$soluong);
         $tongtien+=$objItem->gia*(100-$objItem->giamgia)/100;
@@ -86,7 +88,7 @@ class CartController extends Controller
         $req->session()->forget('cart');
         $req->session()->forget('soluong');
         $req->session()->forget('tongtien');
-        return redirect()->back();
+        return redirect()->route('shop.index.index');
     }
     public function thanhtoan(Request $req){
         $auth=Auth::user();
@@ -110,6 +112,7 @@ class CartController extends Controller
         $month=date('Y-m');
         $year=date('Y');
         $auth=Auth::user();
+        //nguoi gioi thieu web mặc định null
         $gioithieu=null;
         $cart=$req->session()->get('cart');
         if($req->thanhtoan > 1 || $req->thanhtoan < 0){
@@ -138,12 +141,12 @@ class CartController extends Controller
             'active'=>0
         ];
         //dd($cart);
-        DB::table('cart')->insertGetId($arItem);
-        $id_cart= DB::getPdo()->lastInsertId();
+        $id_cart=DB::table('cart')->insertGetId($arItem);
+        //$id_cart= DB::getPdo()->lastInsertId();
         foreach($cart as $item){
             $item['id_cart']=$id_cart;
             $item['active']=1;
-            DB::table('cart_detail')->insertGetId($item);
+            DB::table('cart_detail')->insert($item);
         }
         if($req->thanhtoan==1){
             DB::table('users')->where('id',$auth->id)->update(['money'=>ceil($auth->money - $req->session()->get('tongtien'))]);
@@ -166,7 +169,7 @@ class CartController extends Controller
             'cart'=>$cart
         ];
         Mail::send('shop.cart.mail',$data,function($msg) use ($data){
-            $msg->from('theanh.a1k12@gmail.com','thegioiluyenthi.com');
+            $msg->from('thegioiluyenthi@gmail.com','thegioiluyenthi.com');
             $msg->to($data['email']);
             $msg->subject($data['tieude']);
         });
@@ -183,6 +186,8 @@ class CartController extends Controller
             return "<script>document.getElementById('taikhoanweb').innerHTML = '<b><i>Tài khoản web không đủ !</i></b>';</script>";
         }
     }
+
+    //kem tra mã giới thiệu
     public function check_code(Request $req){
         $auth=Auth::user();
         $code=$req->code;

@@ -128,6 +128,8 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
+												<td class="text-center"><strong>Mã SP</strong>
+                                                </td>
                                                 <td class="text-center"><strong>Ảnh</strong>
                                                 </td>
                                                 <td class="text-center"><strong>Tên sách</strong>
@@ -138,7 +140,9 @@
                                                 </td>
                                                 <td class="text-center" style="width:10%;"><strong>Giảm(%)</strong>
                                                 </td>
-												<td>Trạng thái</td>
+												<td class="text-center" style="width:10%;"><strong>Hoa hồng(%)</strong>
+                                                </td>
+												<td class="text-center">Trạng thái</td>
                                                 <td class="text-center"><strong>Tổng</strong>
                                                 </td>
                                             </tr>
@@ -146,6 +150,7 @@
                                         <tbody id="checkout_list">
 											@foreach($sanpham as $sp)
 											@php
+												$ma_sp=$sp->ma_sp;
 												$picture=$sp->picture;
 												$namesp=$sp->namesp;
 												$gia=$sp->gia;
@@ -158,6 +163,9 @@
 												$tong+=$tongsp;
 											@endphp
 											<tr>
+												<td class="text-left">
+													<span style="color:red">{{$ma_sp}}</span>
+												</td>
 												<td class="text-center">
 													<img style="height:100px;" src="/storage/app/files/{{$picture}}" alt="{{$namesp}}" title="{{$namesp}}" width="100">
 												</td>
@@ -171,7 +179,10 @@
 													{{$soluong}}
 												</td>
 												<td class="text-left">
-													{{$giam}}
+													{{$giam}}%
+												</td>
+												<td class="text-left">
+													{{$chiase}}%
 												</td>
 												<td class="text-left">                        
 													@if($active_con==0)
@@ -189,14 +200,14 @@
 											</tr>
 											@endforeach
 											<tr>
-												<td colspan="6" class="text-right">Tổng tiền:</td>
+												<td colspan="8" class="text-right">Tổng tiền:</td>
 												<td class="text-right">
 													<strong class="total_money">{{number_format($tong,0)}}đ</strong>
 												</td>
 											</tr>
 											@if(Request::is('user/don-hang-gioi-thieu'))
 											<tr>
-												<td>
+												<td colspan="2">
 													Trạng thái: <span style="color:red">
 													@if($active==0)
 														Chờ nhân viên xác nhận
@@ -210,9 +221,9 @@
 													</span>
 												</td>
 												@if($active==2)
-												<td colspan="5" class="text-right">Bạn đã nhận được:</td>
+												<td colspan="6" class="text-right">Bạn đã nhận được:</td>
 												@else
-												<td colspan="5" class="text-right">Nếu thành công bạn sẽ nhận được:</td>
+												<td colspan="6" class="text-right">Nếu thành công bạn sẽ nhận được:</td>
 												@endif
 												<td class="text-right">
 													<strong class="total_money">{{number_format($tonghoahong,0)}}đ</strong>

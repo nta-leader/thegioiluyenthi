@@ -97,12 +97,18 @@ $(document).ready(function(){
                         $giamgia=$objItem->giamgia;
                         $gia=$objItem->gia;
                         $chiase=$objItem->chiase;
+                        $ma_sp=$objItem->ma_sp;
                         $old_name=old('name');
                         $old_detail=old('detail_text');
                         $old_preview=old('preview_text');
+                        $old_ma_sp=old('ma_sp');
                     @endphp
                         <form role="form" method="post" enctype="multipart/form-data" action="{{route('admin.sanpham.edit',['id'=>$id])}}">
                         	{{csrf_field()}}
+                            <div class="form-group">
+                                <label>Mã sản phẩm</label>
+                                <input type="text" name="ma_sp" value="{{ old('ma_sp') !='' ? $old_ma_sp : $ma_sp }}" class="form-control" />
+                            </div>
                             <div class="form-group">
                                 <label>Tên sản phẩm</label>
                                 <input type="text" name="name" value="{{ old('name') !='' ? $old_name : $namesp }}" class="form-control" />

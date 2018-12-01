@@ -106,6 +106,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Mã sản phẩm</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Giá gốc</th>
                                 <th>Giảm giá(%)</th>
@@ -129,6 +130,7 @@
                         @foreach($objItems as $objItem)
                         @php
                             $id=$objItem->id_sp;
+                            $ma_sp=$objItem->ma_sp;
                             $namesp=$objItem->namesp;
                             $namecat=$objItem->namecat;
                             $gioithieu=$objItem->preview_text;
@@ -144,6 +146,7 @@
                         @endphp
                             <tr class="gradeX">
                                 <td>{{$id}}</td>
+                                <td>{{$ma_sp}}</td>
                                 <td style="width:15%;">{{$namesp}}</td>
                                 <td>{{number_format($gia,0)}}đ</td>
                                 <td>
