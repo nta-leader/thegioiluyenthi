@@ -23,8 +23,8 @@
         <i class="fa fa-shopping-cart" aria-hidden="true"></i> Đơn hàng: {{$date}}
         @if($nhanvien!=null && $nhanvien!=$auth->username && $active >= 0 && $active < 2)
             <h3 style="color:red;">Đơn hàng này đã có người xỷ lý</h3>
-        @elseif(Session::has('msg'))
-            <h3 style="color:red;">{{Session::get('msg')}}</h3>
+        @elseif(Session::has('msg_cart'))
+            <h3 style="color:red;">{{Session::get('msg_cart')}}</h3>
         @endif
     </h4>
 </div>

@@ -351,13 +351,25 @@ Route::namespace('Admin')->prefix('admincp')->middleware('auth')->group(function
 			'uses'=>'CartController@index',
 			'as'=>'admin.donhang.index'
 		]);
+		Route::post('index',[
+			'uses'=>'CartController@tk_index',
+			'as'=>'admin.donhang.tk_index'
+		]);
 		Route::get('don-hang-moi',[
 			'uses'=>'CartController@donhangmoi',
 			'as'=>'admin.donhang.moi'
 		]);
+		Route::post('don-hang-moi',[
+			'uses'=>'CartController@tk_donhangmoi',
+			'as'=>'admin.donhang.tk_donhangmoi'
+		]);
 		Route::get('nhan-vien-nhan',[
 			'uses'=>'CartController@nhanviennhan',
 			'as'=>'admin.donhang.nhanvien'
+		]);
+		Route::post('nhan-vien-nhan',[
+			'uses'=>'CartController@tk_nhanviennhan',
+			'as'=>'admin.donhang.tk_nhanviennhan'
 		]);
 		Route::post('view',[
 			'uses'=>'CartController@view',
@@ -395,9 +407,57 @@ Route::namespace('Admin')->prefix('admincp')->middleware('auth')->group(function
 		
 	});
 	Route::prefix('slide')->group(function(){
-		Route::get('index',[
+		Route::get('{name}',[
 			'uses'=>'SlideController@index',
 			'as'=>'admin.slide.index'
+		]);
+		Route::post('{id}',[
+			'uses'=>'SlideController@view',
+			'as'=>'admin.slide.view'
+		]);
+		Route::get('edit/{id}',[
+			'uses'=>'SlideController@index',
+			'as'=>'admin.slide.edit'
+		]);
+		Route::get('san-pham/{id}',[
+			'uses'=>'SlideController@index',
+			'as'=>'admin.slide.sanpham'
+		]);
+		Route::get('active/an-hien',[
+			'uses'=>'SlideController@active',
+			'as'=>'admin.slide.active'
+		]);
+		Route::get('del/{id}',[
+			'uses'=>'SlideController@del',
+			'as'=>'admin.slide.del'
+		]);
+		Route::get('{name}/add',[
+			'uses'=>'SlideController@add',
+			'as'=>'admin.slide.add'
+		]);
+		Route::post('add/{id}',[
+			'uses'=>'SlideController@postAdd',
+			'as'=>'admin.slide.postadd'
+		]);
+		Route::get('{name}/edit/{id}',[
+			'uses'=>'SlideController@edit',
+			'as'=>'admin.slide.edit'
+		]);
+		Route::post('edit/{id}',[
+			'uses'=>'SlideController@postEdit',
+			'as'=>'admin.slide.postEdit'
+		]);
+		/*Route::get('left-slide',[
+			'uses'=>'SlideController@index',
+			'as'=>'admin.slide.left_slide'
+		]);
+		Route::get('bottom-slide',[
+			'uses'=>'SlideController@index',
+			'as'=>'admin.slide.bottom_slide'
+		]);
+		Route::get('tieu-bieu-slide',[
+			'uses'=>'SlideController@index',
+			'as'=>'admin.slide.tieubieu_slide'
 		]);
 		Route::post('active',[
 			'uses'=>'SlideController@active',
@@ -406,7 +466,7 @@ Route::namespace('Admin')->prefix('admincp')->middleware('auth')->group(function
 		Route::post('timkiem',[
 			'uses'=>'SlideController@timkiem',
 			'as'=>'admin.slide.timkiem'
-		]);
+		]);*/
 	});
 	Route::prefix('contact')->group(function(){
 		Route::get('index',[
@@ -505,5 +565,3 @@ Route::namespace('Admin')->prefix('admincp')->middleware('auth')->group(function
 		])->middleware('role:admin');
 	});
 });
-
-//->middleware('role:admin');

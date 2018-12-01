@@ -16,7 +16,7 @@
 @endphp
     <tr class="gradeX">
         <td>{{$id}}</td>
-        <td>{{$namesp}}</td>
+        <td style="width:15%;">{{$namesp}}</td>
         <td>{{number_format($gia,0)}}đ</td>
         <td>
             <span style="color:red">{{$giamgia}}%</span>
@@ -28,7 +28,6 @@
         </td>
         <td>{{$daban}}</td>
         <td style="width:15%;">{{$namecat}}</td>
-        <td style="width:20%;">{{$gioithieu}}</td>
         <td class="center">
             <img src="/storage/app/files/{{$picture}}" alt="" height="80px" width="100px" />
             <br>

@@ -111,6 +111,7 @@ class AuthController extends Controller
     	$password2=$req->password2;
 		$fullname=$req->fullname;
 		$email=$req->email;
+		$facebook=$req->facebook;
 		$phone=$req->phone;
 		$address=$req->address;
     	if($password==$password2){
@@ -119,6 +120,7 @@ class AuthController extends Controller
     			'password'=>bcrypt($password),
 				'fullname'=>$fullname,
 				'email'=>$email,
+				'facebook.com'=>$facebook,
 				'phone'=>$phone,
 				'address'=>$address,
 				'money'=>0,

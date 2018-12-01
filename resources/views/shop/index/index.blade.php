@@ -24,11 +24,11 @@
 			<div class="home-slider " id="gallery-0">
 				<div class="slider0">
 					<div>
-						<a href="#"><img src="{{$urlShop}}/image/cache/catalog/slider/slider-1-593x321.png" alt="" class="img-responsive" style="width: 100%;" />
+						<a href="https://docs.google.com/document/d/1zPlZGfFBDtSa0RA22m3LymVz-qTL5faQSs8SuLE6BcM/edit?fbclid=IwAR3YQL_Sm8UXgQQrI-i0rmm67DLpP-sgDCLj12cuaq9XAZc5Yolzvr2Ka7Q"><img src="/storage/app/slide/1.jpg" alt="" class="img-responsive" style="width: 100%;" />
 						</a>
 					</div>
 					<div>
-						<a href="#"><img src="{{$urlShop}}/image/cache/catalog/slider/slider-1-593x321.png" alt="" class="img-responsive" style="width: 100%;" />
+						<a href="https://docs.google.com/document/d/1zPlZGfFBDtSa0RA22m3LymVz-qTL5faQSs8SuLE6BcM/edit?fbclid=IwAR3YQL_Sm8UXgQQrI-i0rmm67DLpP-sgDCLj12cuaq9XAZc5Yolzvr2Ka7Q"><img src="/storage/app/slide/2.jpg" alt="" class="img-responsive" style="width: 100%;" />
 						</a>
 					</div>
 				</div>
@@ -53,14 +53,14 @@
 			</script>
 			<div class="col-md-12 no-padding col-sm-12 hidden-xs">
 				<div class="banner-item banner-right col-md-6 col-sm-6 col-xs-12 " id="banner_default-404354953">
-					<a href="javascript:void(0)" title="">
-						<img class="img-responsive" src="{{$urlShop}}/image/cache/catalog/banner/ss-banner-img-2-286x145.jpg" alt="">
+					<a href="{{ route('shop.huongdan.index') }}" title="">
+						<img class="img-responsive" src="/storage/app/slide/3.jpg" alt="">
 						<div class="hover_collection"></div>
 					</a>
 				</div>
 				<div class="banner-item banner-right col-md-6 col-sm-6 col-xs-12 " id="banner_default-1551956591">
-					<a href="javascript:void(0)" title="">
-						<img class="img-responsive" src="{{$urlShop}}/image/cache/catalog/banner/ss-banner-img-3-286x145.jpg" alt="">
+					<a href="https://docs.google.com/document/d/1ph6SqDaPhLToM8EPkx2LOodDBbKD_PnXEb07imYfTnY/edit?fbclid=IwAR2K_9PA8nwSu4ZHyBzXdZsGzyiOlCIsSipXz7oUq0Xq-zlxpCsiRE4dmq8" title="">
+						<img class="img-responsive" src="/storage/app/slide/4.jpg" alt="">
 						<div class="hover_collection"></div>
 					</a>
 				</div>
@@ -69,7 +69,7 @@
 		<div class="banner-right-one banner-item banner-right col-md-4 col-sm-4 hidden-xs">
 			<div class=" " id="banner_default-1427028578">
 				<a href="javascript:void(0)" title="">
-					<img class="img-responsive" src="{{$urlShop}}/image/cache/catalog/banner/ss-banner-img-1-287x485.jpg" alt="">
+					<img class="img-responsive" src="/storage/app/slide/5.jpg" alt="">
 					<div class="hover_collection"></div>
 				</a>
 			</div>
@@ -393,6 +393,7 @@
 		});
 	});
 </script>
+
 <script type="text/javascript" src="{{$urlShop}}/catalog/view/theme/bigboom/javascript/jquery.cookie.min.js"></script>
 <script type="text/javascript" src="{{$urlShop}}/catalog/view/theme/bigboom/javascript/option-selectors.js"></script>
 <script type="text/javascript" src="{{$urlShop}}/catalog/view/theme/bigboom/javascript/api.jquery.js"></script>

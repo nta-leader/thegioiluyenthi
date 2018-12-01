@@ -16,7 +16,7 @@ class Sanpham extends Model
     	return DB::table('sanpham as sp')->join('cat as c','sp.id_cat','=','c.id_cat')->orderBy('sp.id_sp','DESC')->paginate(10);
     }
     public function getList2($parent_id,$arItem){
-    	return DB::table('sanpham as sp')->join('cat as c','sp.id_cat','=','c.id_cat')->whereIn('sp.id_cat',$arItem)->orderBy('sp.id_sp','DESC')->paginate(5);
+    	return DB::table('sanpham as sp')->join('cat as c','sp.id_cat','=','c.id_cat')->whereIn('sp.id_cat',$arItem)->orderBy('sp.id_sp','DESC')->paginate(10);
     }
     public function add($arItem){
     	return $this->insertGetId($arItem);
@@ -56,7 +56,7 @@ class Sanpham extends Model
         ->join('cat as c','sp.id_cat','=','c.id_cat')
         ->where('sp.namesp','like','%'.$key.'%')
         ->orderBy('sp.id_sp','DESC')
-        ->paginate(10);
+        ->get();
     }
     public function timkiem2($arItem,$key){
         return DB::table('sanpham as sp')
@@ -64,7 +64,7 @@ class Sanpham extends Model
         ->whereIn('sp.id_cat',$arItem)
         ->where('sp.namesp','like','%'.$key.'%')
         ->orderBy('sp.id_sp','DESC')
-        ->paginate(10);
+        ->get();
     }
 
     //phan slide

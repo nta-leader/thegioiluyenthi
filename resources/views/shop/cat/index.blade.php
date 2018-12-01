@@ -72,34 +72,40 @@
                                         <ul>
                                             <li class="toggle-sort">
                                                 <div class="transparent-background"></div>
-                                                <span>Mặc định</span>
+                                                @php
+                                                    $arSapxep=[
+                                                        "gc-gt"=>"Giá (Cao - Thấp)",
+                                                        "gt-gc"=>"Giá (Thấp - Cao)",
+                                                        "spm-spc"=>"Sản phẩm(Mới-Cũ)",
+                                                        "spc-spm"=>"Sản phẩm(Cũ-Mới)",
+                                                        "ggc-ggt"=>"Giảm giá(Cao-Thấp)",
+                                                        "ggt-ggc"=>"Giảm giá(Thấp-Cao)"
+                                                    ];
+                                                @endphp
+                                                @if(Session::has('sapxep'))
+                                                    <span>{{ $arSapxep[Session::get('sapxep')] }}</span>
+                                                @else
+                                                    <span>Sản phẩm(Mới-Cũ)</span>
+                                                @endif                                             
                                                 <ul class="content-sort off">
                                                     <li>
-                                                        <a href="ao-nam0a15.html?sort=p.product_id&amp;order=DESC">Mặc định</a>
+                                                        <a href="?sapxep=gc-gt">Giá (Cao - Thấp)</a>
                                                     </li>
                                                     <li>
-                                                        <a href="ao-nam3631.html?sort=pd.name&amp;order=ASC">Tên (A - Z)</a>
+                                                        <a href="?sapxep=gt-gc">Giá (Thấp - Cao)</a>
                                                     </li>
                                                     <li>
-                                                        <a href="ao-namf933.html?sort=pd.name&amp;order=DESC">Tên (Z - A)</a>
+                                                        <a href="?sapxep=spm-spc">Sản phẩm(Mới-Cũ)</a>
                                                     </li>
                                                     <li>
-                                                        <a href="ao-namb721.html?sort=p.price&amp;order=ASC">Giá (Thấp &gt; Cao)</a>
+                                                        <a href="?sapxep=spc-spm">Sản phẩm(Cũ-Mới)</a>
+                                                    </li>
+                                                    
+                                                    <li>
+                                                        <a href="?sapxep=ggc-ggt">Giảm giá(Cao-Thấp)</a>
                                                     </li>
                                                     <li>
-                                                        <a href="ao-nam44ca.html?sort=p.price&amp;order=DESC">Giá (Cao &gt; Thấp)</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="ao-namf2b6.html?sort=rating&amp;order=DESC">Đánh giá (Cao nhất)</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="ao-nam23e8.html?sort=rating&amp;order=ASC">Đánh giá (Thấp nhất)</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="ao-nam950c.html?sort=p.model&amp;order=ASC">Dòng sản phẩm (A - Z)</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="ao-nam942a.html?sort=p.model&amp;order=DESC">Dòng sản phẩm (Z - A)</a>
+                                                        <a href="?sapxep=ggt-ggc">Giảm giá(Thấp-Cao)</a>
                                                     </li>
                                                 </ul>
                                             </li>

@@ -23,6 +23,15 @@ class CartController extends Controller
         }
         return view('admin.cart.index',compact('objItems','title'));
     }
+    public function tk_index(Request $req){
+        $key=$req->key;
+        $objItems = $this->cart->tk_index($key);
+        foreach($objItems as $stt => $item ){
+            $id_cart=$item->id_cart;
+            $objItems[$stt]->detail=$this->cart->getAll_cart_detail($id_cart);
+        }
+        return view('admin.cart.search.tk_index',compact('objItems'));
+    }
     public function donhangmoi(){
         $title="Đơn hàng mới";
         $objItems=$this->cart->getAll_moi();
@@ -31,6 +40,15 @@ class CartController extends Controller
             $objItems[$stt]->detail=$this->cart->getAll_cart_detail($id_cart);
         }
         return view('admin.cart.index',compact('objItems','title'));
+    }
+    public function tk_donhangmoi(Request $req){
+        $key=$req->key;
+        $objItems = $this->cart->tk_donhangmoi($key);
+        foreach($objItems as $stt => $item ){
+            $id_cart=$item->id_cart;
+            $objItems[$stt]->detail=$this->cart->getAll_cart_detail($id_cart);
+        }
+        return view('admin.cart.search.tk_index',compact('objItems'));
     }
     public function nhanviennhan(){
         $title="Đơn hàng bạn xử lý";
@@ -42,6 +60,16 @@ class CartController extends Controller
         }
         return view('admin.cart.index',compact('objItems','title'));
     }
+    public function tk_nhanviennhan(Request $req){
+        $key=$req->key;
+        $auth=Auth::user();
+        $objItems = $this->cart->tk_nhanviennhan($key,$auth->username);
+        foreach($objItems as $stt => $item ){
+            $id_cart=$item->id_cart;
+            $objItems[$stt]->detail=$this->cart->getAll_cart_detail($id_cart);
+        }
+        return view('admin.cart.search.tk_index',compact('objItems'));
+    }
     public function view(Request $req){
         $username=Auth::user()->username;
         $id_cart=$req->id_cart;
@@ -49,7 +77,7 @@ class CartController extends Controller
         if($objItem->nhanvien==null){
             DB::table("cart")->where('id_cart',$id_cart)->update(['nhanvien'=>$username]);
             $objItem->nhanvien=$username;
-            $req->session()->flash('msg','Bạn đã chọn đơn hàng này !');
+            $req->session()->flash('msg_cart','Bạn đã chọn đơn hàng này !');
         }
         $objItem->detail=$this->cart->getAll_cart_detail($id_cart);
         return view('admin.cart.view',compact('objItem'));

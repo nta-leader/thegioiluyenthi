@@ -42,7 +42,21 @@
                 </ul>
             </li>
             <li>
-                <a class="{{ Request::is('admincp/slide*') ? 'active-menu' : '' }}" href="{{route('admin.slide.index')}}"><i class="fa fa-desktop fa-3x"></i> Quản lý slide </a>
+                <a><i class="fa fa-desktop fa-3x"></i> Quản lý slide </a>
+                <ul class="nav nav-second-level collapse {{ Request::is('admincp/slide*') ? 'in' : '' }}" style="height: auto;">
+                    <li>
+                        <a class="{{ Request::is('admincp/slide/slide-chinh*') ? 'active-menu' : ''}}" href="{{route('admin.slide.index',['name'=>'slide-chinh'])}}">Slide chính</a>
+                    </li>
+                    <li>
+                        <a class="{{ Request::is('admincp/slide/left-slide*') ? 'active-menu' : ''}}" href="{{route('admin.slide.index',['name'=>'left-slide'])}}">Left slide</a>
+                    </li>
+                    <li>
+                        <a class="{{ Request::is('admincp/slide/bottom-slide*') ? 'active-menu' : ''}}" href="{{route('admin.slide.index',['name'=>'bottom-slide'])}}">Bottom slide</a>
+                    </li>
+                    <li>
+                        <a class="{{ Request::is('admincp/slide/tieu-bieu-slide*') ? 'active-menu' : ''}}" href="{{route('admin.slide.index',['name'=>'tieu-bieu-slide'])}}">Tiêu biểu slide</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a class="{{ Request::is('admincp/contact*') ? 'active-menu' : '' }}" href="{{route('admin.contact.index')}}"><i class="fa fa-edit fa-3x"></i> Quản lý liên hệ </a>

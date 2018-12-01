@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="col-sm-6" style="text-align: right;">
                             <form method="get" action="javascript:void(0)">
-                                <button  class="btn btn-warning btn-sm" onclick="get()" style="float:right">Tìm kiếm</button>
+                                <button  class="btn btn-warning btn-sm" onclick="timkiem()" style="float:right">Tìm kiếm</button>
                                 <input type="text" id="key" name="key" class="form-control input-sm" placeholder="Nhập từ cần tìm !" style="float:right; width: 300px;" />
                                 <div style="clear:both"></div>
                             </form><br />
@@ -40,7 +40,7 @@
                                 <th width="160px">Chức năng</th>
                             </tr>
                         </thead>
-                        <tbody id="news">
+                        <tbody id="cart_tk">
                         @foreach($objItems as $objItem)
                         @php
                         	$id_cart=$objItem->id_cart;
@@ -204,6 +204,31 @@
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <script type="text/javascript">
+    function timkiem(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        if($("#key").val()==""){
+            return swal("Vui lòng nhập từ khóa !","","error");
+        }
+        $.ajax({
+            url: '',
+            type: 'post',
+            cache: false,
+            data: {
+                key:$("#key").val(),
+            },
+            success: function(data){
+                $('#cart_tk').html(data);
+            },
+            error: function (){
+                alert('Có lỗi xảy ra');
+            }
+        });
+    return false;
+    }
     function cong(id_cart,id_sp){
         $.ajaxSetup({
             headers: {
