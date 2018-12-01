@@ -13,11 +13,38 @@ class Cart extends Model
     public function getAll(){
         return $this->orderBy('id_cart','DESC')->paginate(10);
     }
+    public function tk_index($key){
+        return $this->where('username','like','%'.$key.'%')
+        ->orWhere('gioithieu','like','%'.$key.'%')
+        ->get();
+    }
     public function getAll_moi(){
         return $this->where('nhanvien',null)->orderBy('id_cart','DESC')->paginate(10);
     }
+    public function tk_donhangmoi($key){
+        return $this->where([
+            ['nhanvien',null],
+            ['username','like','%'.$key.'%']
+        ])
+        ->orWhere([
+            ['nhanvien',null],
+            ['gioithieu','like','%'.$key.'%']
+        ])
+        ->get();
+    }
     public function getAll_nhanvien($username){
         return $this->where('nhanvien',$username)->orderBy('id_cart','DESC')->paginate(10);
+    }
+    public function tk_nhanviennhan($key,$username){
+        return $this->where([
+            ['nhanvien',$username],
+            ['username','like','%'.$key.'%']
+        ])
+        ->orWhere([
+            ['nhanvien',$username],
+            ['gioithieu','like','%'.$key.'%']
+        ])
+        ->get();
     }
     public function getItem($id_cart){
         return $this->where('id_cart',$id_cart)->first();

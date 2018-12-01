@@ -10,13 +10,13 @@
     <base />
     <meta property="og:url" content="index.html" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="BigBoom" />
+    <meta property="og:title" content="Thegioiluyenthi" />
     <meta property="og:description" />
-    <meta property="og:image" content="image/https_/bigboom.myzozo.net/image/catalog/logo/logo.html" />
+    <meta property="og:image" content="/storage/app/logo.png" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" />
     <meta name="twitter:title" content="BigBoom" />
-    <meta name="twitter:image" content="image/https_/bigboom.myzozo.net/image/catalog/logo/logo.html" />
+    <meta name="twitter:image" content="/storage/app/logo.png" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=vietnamese" rel="stylesheet">
     <style>
         ._item{
@@ -26,6 +26,45 @@
         }
     </style>
     @yield('css')
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+                                    'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1774845142644183');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1774845142644183&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+<!-- Global site tag (gtag.js) - Google Ads: 793412204 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-793412204"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'AW-793412204');
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129752365-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-129752365-1');
+</script>
+
 </head>
 
 <body class="common-home">
@@ -34,7 +73,7 @@
     <div id="mySidenav" class="sidenav menu_mobile hidden-md hidden-lg">
         <div class="top_menu_mobile">
             <span class="close_menu">
-                    <img src="{{$urlShop}}/image/catalog/logo/logo.png" alt="BigBoom" />
+                    <img src="/storage/app/logo.png" />
                 </span>
         </div>
         <div class="content_memu_mb">
@@ -99,7 +138,7 @@
     <header class="header">
         <div class="top-banner hidden-sm hidden-xs">
             <a href="index.html">
-                <img class="img-responsive" src="{{$urlShop}}/image/cache/catalog/banner/img-top-banner-0x0.jpg">
+                <img class="img-responsive" src="{{$urlShop}}/image/cache/catalog/banner/img-top-banner-0x0.jpg" alt="BigBoom">
             </a>
         </div>
         <div class="topbar">
@@ -160,7 +199,7 @@
                             <div class="col-lg-3 col-md-3">
                                 <div class="logo">
                                     <a href="/" class="logo-wrapper ">
-                                        <img src="{{$urlShop}}/image/catalog/logo/logo.png" alt="BigBoom">
+                                        <img src="/storage/app/logo.png" >
                                     </a>
                                 </div>
                             </div>
@@ -193,7 +232,7 @@
                                         <div class="wishlist_header hidden-xs hidden-sm">
                                             <div class="img_hotline"><i class="fa fa-phone"></i></div>
                                             <span class="text_hotline">Điện thoại</span>
-                                            <a class="phone-order" href="tel:0123 456 789">0123 456 789</a>
+                                            <a class="phone-order" href="tel:0905668662">0905 668 662</a>
                                         </div>
                                         @if(Session::has('soluong'))
                                             @php  

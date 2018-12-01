@@ -84,7 +84,7 @@
             <i class="fa fa-bars"></i>
         </span>
             <div class="text-box">
-                <p class="main-text"><a href="{{route('admin.slide.index')}}" title="">Quản lý slide</a></p>
+                <p class="main-text"><a href="" title="">Quản lý slide</a></p>
             </div>
         </div>
     </div>

@@ -149,6 +149,26 @@
                                 <input type="email" name="email" value="{{old('email')}}" placeholder="Nhập email" id="input-email" class="form-control">
                             </div>
                         </div>
+                        @if($errors->has('facebook'))
+                        <div class="form-group required">
+                            <label class="col-sm-2 control-label" for="input-firstname">
+                                <img width="20px" src="http://www.lycee-marie-de-champagne.fr/wp-content/uploads/2014/06/Warning-128.png" >
+                            </label>
+                            <div class="col-sm-10">
+                                <p class="form-control" style="color:red; margin: 0;background: no-repeat;border: none;"> 
+                                    @foreach($errors->get('facebook') as $stt => $error)
+                                    <span>{{$error}}</span><br>
+                                    @endforeach                                   
+                                </p>
+                            </div>
+                        </div>
+                        @endif
+                        <div class="form-group required">
+                            <label class="col-sm-2 control-label" for="input-email">Facebook</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="facebook" value="{{old('facebook')}}" placeholder="Nhập link facebook" id="input-email" class="form-control">
+                            </div>
+                        </div>
                         @if($errors->has('phone'))
                         <div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-firstname">

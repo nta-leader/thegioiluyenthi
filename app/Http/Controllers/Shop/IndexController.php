@@ -24,7 +24,6 @@ class IndexController extends Controller
 
     		$objItems[$value['id_cat']]['sanpham']=$objSanpham;
     	}
-    	$slide=$sanpham->getSlide();
-    	return view('shop.index.index',compact('objItems_giamgia','random_giamgia','objItems_muanhieu','objItems','slide'));
+    	return view('shop.index.index',compact('objItems_giamgia','random_giamgia','objItems_muanhieu','objItems'));
     }
 }
