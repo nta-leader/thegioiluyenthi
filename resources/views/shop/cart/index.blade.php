@@ -2,6 +2,8 @@
     <table class="table table-bordered">
         <thead>
             <tr>
+                <td class="text-center"><strong>Mã SP</strong>
+                </td>
                 <td class="text-center"><strong>Ảnh</strong>
                 </td>
                 <td class="text-center"><strong>Tên sách</strong>
@@ -22,6 +24,7 @@
             @php
                 $i++;
                 $id_sp=$item['id_sp'];
+                $ma_sp=$item['ma_sp'];
                 $namesp=$item['namesp'];
                 $picture=$item['picture'];
                 $gia=$item['gia'];
@@ -32,6 +35,9 @@
                 $tong+=$tongItem;
             @endphp
             <tr>
+                <td class="text-left">
+                    <a style="color:red;">{{$ma_sp}}</a>
+                </td>
                 <td class="text-center">
                     <img src="/storage/app/files/{{$picture}}" alt="{{$namesp}}" title="{{$namesp}}" width="100">
                 </td>

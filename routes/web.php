@@ -42,9 +42,13 @@ Route::namespace('Auth')->group(function(){
 	]);
 });
 Route::namespace('Shop')->group(function(){
-	Route::get('/',[
+	Route::get('',[
 		'uses'=>'IndexController@index',
 		'as'=>'shop.index.index'
+	]);
+	Route::get('su-kien/{name}',[
+		'uses'=>'SlideController@index',
+		'as'=>'shop.sukien.index'
 	]);
 	Route::get('/tim-kiem',[
 		'uses'=>'CatController@timkiem',

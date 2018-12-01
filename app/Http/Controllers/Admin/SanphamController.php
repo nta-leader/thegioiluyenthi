@@ -40,6 +40,7 @@ class SanphamController extends Controller
         $picture = end($tmp);
         $date=date('Y-m-d H:i:s');
     	$arItem=[
+            'ma_sp'=>$req->ma_sp,
             'namesp'=>$req->name,
             'id_cat'=>$req->id_cat,
             'gia'=>$req->gia,
@@ -82,6 +83,7 @@ class SanphamController extends Controller
             return redirect()->route('admin.sanpham.edit',['id'=>$id]);
         }
         $arItem=[
+            'ma_sp'=>$req->ma_sp,
             'namesp'=>$req->name,           
             'gia'=>$req->gia,
             'giamgia'=>$req->giamgia,

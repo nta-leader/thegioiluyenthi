@@ -61,6 +61,7 @@
                                     <ul>
                                         @foreach($detail as $item)
                                         @php
+                                            $ma_sp=$item->ma_sp;
                                             $namesp=$item->namesp;
                                             $gia=$item->gia;
                                             $giam=$item->giam;
@@ -69,7 +70,7 @@
                                             $tongitem=$active_con*$gia*(100-$giam)/100;
                                             $tong+=$tongitem*$soluong;
                                         @endphp
-                                        <li>Tên: {{$namesp}}( {{number_format($tongitem,0)}}đ ); Số lượng: {{$soluong}};
+                                        <li>Mã SP: <span style="color:red">{{ $ma_sp }}</span>; Tên: {{$namesp}}( {{number_format($tongitem,0)}}đ ); Số lượng: {{$soluong}};
                                             Tình trạng: 
                                             @if($active_con==1)
                                                 <span style="color:blue">còn hàng</span>
@@ -163,7 +164,7 @@
     <div class="modal-dialog modal-dialog modal-lg" role="document" style="width: 100%;height: 100%;margin: 0;padding: 101px 262px;">
         <div id="loading" class="loading" style="display: block; position: absolute; z-index: 1000000; width: 96%; height: 100%;">
             <center>
-                <img style="margin-top:10%; position: absolute" width="50px" src="/templates/shop/loader.gif">
+                <img style="margin-top:10%; position: absolute;" width="50px" src="/templates/shop/loader.gif">
             </center>
         </div>
         <div class="modal-content" id="view">

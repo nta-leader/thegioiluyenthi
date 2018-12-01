@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Shop\Sanpham;
 use App\Model\Admin\Cat;
+use App\Model\Shop\Slide;
 class IndexController extends Controller
 {
-    public  function index(Sanpham $sanpham,Cat $cat){
+    public  function index(Sanpham $sanpham,Cat $cat,Slide $slide){
     	$objItems_giamgia=$sanpham->get_giamgia(10);
     	$random_giamgia=$sanpham->get_giamgia_random(5);
     	$objItems_muanhieu=$sanpham->get_muanhieu(10);
@@ -23,7 +24,13 @@ class IndexController extends Controller
 	    	$objSanpham=$sanpham->getList($arItem,10);
 
     		$objItems[$value['id_cat']]['sanpham']=$objSanpham;
-    	}
-    	return view('shop.index.index',compact('objItems_giamgia','random_giamgia','objItems_muanhieu','objItems'));
+		}
+		$data='{"chinh":null,"left":null,"bottom":null,"tieubieu":null}';
+		$objSlide=json_decode($data);
+		$objSlide->chinh=$slide->chinh();
+		$objSlide->left=$slide->left();
+		$objSlide->bottom=$slide->bottom();
+		$objSlide->tieubieu=$slide->tieubieu();
+    	return view('shop.index.index',compact('objItems_giamgia','random_giamgia','objItems_muanhieu','objItems','objSlide'));
     }
 }

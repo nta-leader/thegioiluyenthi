@@ -22,8 +22,6 @@ class SanphamController extends Controller
     	$objItems=$sanpham->getDexuat($id);
         $objItem_anh=$anh->getList($id);
         $name_cat=$cat->getItem($objItem_sp->id_cat);
-    	//$objCm_cha=$comment->getList_sp_cha($id);
-        //$objCm_con=$comment->getList_sp_con($id);
     	return view('shop.sanpham.index',compact('objItem_sp','objItem_anh','objItems','id','name_cat'));
     }
     public function chiase(Request $req){

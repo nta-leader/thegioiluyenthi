@@ -23,14 +23,20 @@
 			<script src="{{$urlShop}}/catalog/view/javascript/bxslider/jquery.bxslider.min.js"></script>
 			<div class="home-slider " id="gallery-0">
 				<div class="slider0">
+					@foreach($objSlide->chinh as $item)
+					@php
+						if($item->url == null){
+							$url=route('shop.sukien.index',['name'=>$item->code]);
+						}else{
+							$url=$item->url;
+						}
+					@endphp
 					<div>
-						<a href="https://docs.google.com/document/d/1zPlZGfFBDtSa0RA22m3LymVz-qTL5faQSs8SuLE6BcM/edit?fbclid=IwAR3YQL_Sm8UXgQQrI-i0rmm67DLpP-sgDCLj12cuaq9XAZc5Yolzvr2Ka7Q"><img src="/storage/app/slide/1.jpg" alt="" class="img-responsive" style="width: 100%;" />
+						<a href="{{ $url }}">
+							<img src="/storage/app/files/{{ $item->picture }}" alt="" class="img-responsive" style="width: 100%;" />
 						</a>
 					</div>
-					<div>
-						<a href="https://docs.google.com/document/d/1zPlZGfFBDtSa0RA22m3LymVz-qTL5faQSs8SuLE6BcM/edit?fbclid=IwAR3YQL_Sm8UXgQQrI-i0rmm67DLpP-sgDCLj12cuaq9XAZc5Yolzvr2Ka7Q"><img src="/storage/app/slide/2.jpg" alt="" class="img-responsive" style="width: 100%;" />
-						</a>
-					</div>
+					@endforeach
 				</div>
 			</div>
 			<script>
@@ -52,26 +58,39 @@
 				});
 			</script>
 			<div class="col-md-12 no-padding col-sm-12 hidden-xs">
+				@foreach($objSlide->bottom as $item)
+				@php
+					if($item->url == null){
+						$url=route('shop.sukien.index',['name'=>$item->code]);
+					}else{
+						$url=$item->url;
+					}
+				@endphp
 				<div class="banner-item banner-right col-md-6 col-sm-6 col-xs-12 " id="banner_default-404354953">
-					<a href="{{ route('shop.huongdan.index') }}" title="">
-						<img class="img-responsive" src="/storage/app/slide/3.jpg" alt="">
+					<a href="{{ $url }}" title="">
+						<img class="img-responsive" src="/storage/app/files/{{ $item->picture }}" alt="">
 						<div class="hover_collection"></div>
 					</a>
 				</div>
-				<div class="banner-item banner-right col-md-6 col-sm-6 col-xs-12 " id="banner_default-1551956591">
-					<a href="https://docs.google.com/document/d/1ph6SqDaPhLToM8EPkx2LOodDBbKD_PnXEb07imYfTnY/edit?fbclid=IwAR2K_9PA8nwSu4ZHyBzXdZsGzyiOlCIsSipXz7oUq0Xq-zlxpCsiRE4dmq8" title="">
-						<img class="img-responsive" src="/storage/app/slide/4.jpg" alt="">
-						<div class="hover_collection"></div>
-					</a>
-				</div>
+				@endforeach
+				
 			</div>
 		</div>
 		<div class="banner-right-one banner-item banner-right col-md-4 col-sm-4 hidden-xs">
 			<div class=" " id="banner_default-1427028578">
-				<a href="javascript:void(0)" title="">
-					<img class="img-responsive" src="/storage/app/slide/5.jpg" alt="">
+				@foreach($objSlide->left as $item)
+				@php
+					if($item->url == null){
+						$url=route('shop.sukien.index',['name'=>$item->code]);
+					}else{
+						$url=$item->url;
+					}
+				@endphp
+				<a href="{{ $url }}" title="">
+					<img class="img-responsive" src="/storage/app/files/{{ $item->picture }}" alt="">
 					<div class="hover_collection"></div>
 				</a>
+				@endforeach
 			</div>
 		</div>
 	</div>
@@ -132,7 +151,6 @@
 														<form class="variants form-nut-grid">
 															<div>
 																<button class="btn-cart button_wh_40 left-to" title="Mua ngay" type="button" onclick="giohang('{{$id_sp}}')">Mua ngay</button>
-																<!--onclick="cart.add(, 1)"></button>-->
 																<a href="{{$url}}" class="button_wh_40 btn_view right-to quick-view">
 																	<i class="fa fa-eye"></i>
 																	<span class="style-tooltip">Xem</span>
@@ -196,8 +214,7 @@
 													<div class="product-action-grid clearfix">
 														<form class="variants form-nut-grid">
 															<div>
-																<button class="btn-cart button_wh_40 left-to" title="Mua ngay" type="button" onclick="onclick="giohang('{{$id_sp}}')">Mua ngay</button>
-																<!--onclick="cart.add(, 1)"></button>-->
+																<button class="btn-cart button_wh_40 left-to" title="Mua ngay" type="button" onclick="giohang('{{$id_sp}}')">Mua ngay</button>
 																<a href="{{$url}}" class="button_wh_40 btn_view right-to quick-view">
 																	<i class="fa fa-eye"></i>
 																	<span class="style-tooltip">Xem</span>
@@ -247,18 +264,21 @@
 						<div class="vc_column-inner">
 							<div class="wpb_wrapper">
 								<div class="row vc_row-flex">
+									@foreach($objSlide->tieubieu as $item)
+									@php
+										if($item->url == null){
+											$url=route('shop.sukien.index',['name'=>$item->code]);
+										}else{
+											$url=$item->url;
+										}
+									@endphp
 									<div class="banner-item banner-right col-md-6 col-sm-6 col-xs-12 " id="banner_default-1098570130">
-										<a href="javascript:void(0)" title="">
-											<img class="img-responsive" src="{{$urlShop}}/image/cache/catalog/banner/bg-top1-570x230.jpg" alt="">
+										<a href="{{ $url }}" title="">
+											<img class="img-responsive" src="/storage/app/files/{{ $item->picture }}" alt="">
 											<div class="hover_collection"></div>
 										</a>
 									</div>
-									<div class="banner-item banner-right col-md-6 col-sm-6 col-xs-12 " id="banner_default-1002948678">
-										<a href="javascript:void(0)" title="">
-											<img class="img-responsive" src="{{$urlShop}}/image/cache/catalog/banner/bg-top2-570x230.jpg" alt="">
-											<div class="hover_collection"></div>
-										</a>
-									</div>
+									@endforeach
 								</div>
 							</div>
 						</div>
@@ -380,7 +400,6 @@
 @section('js')
 <script>
 	$(document).ready(function() {
-		/*$('#section-verticalmenu').addClass('active-desk');*/
 		if ($(window).width() > 991) {
 			$('#section-verticalmenu').addClass('active');
 		}

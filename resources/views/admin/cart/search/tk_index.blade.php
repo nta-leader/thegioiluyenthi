@@ -18,6 +18,7 @@
             <ul>
                 @foreach($detail as $item)
                 @php
+                    $ma_sp=$item->ma_sp;
                     $namesp=$item->namesp;
                     $gia=$item->gia;
                     $giam=$item->giam;
@@ -26,7 +27,7 @@
                     $tongitem=$active_con*$gia*(100-$giam)/100;
                     $tong+=$tongitem*$soluong;
                 @endphp
-                <li>Tên: {{$namesp}}( {{number_format($tongitem,0)}}đ ); Số lượng: {{$soluong}};
+                <li>Mã SP: <span style="color:blue">{{ $ma_sp }}</span>; Tên: {{$namesp}}( {{number_format($tongitem,0)}}đ ); Số lượng: {{$soluong}};
                     Tình trạng: 
                     @if($active_con==1)
                         <span style="color:blue">còn hàng</span>
