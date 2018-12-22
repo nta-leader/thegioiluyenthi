@@ -94,8 +94,7 @@ class SlideController extends Controller
             ])
 	    	->count();
     	}
-    	
-
+    
     	$data = array();
     	if($posts){
             $arItem=[
@@ -107,7 +106,10 @@ class SlideController extends Controller
     		foreach ($posts as $r) {
     			//ten o day phai trung vs ten o table "<th>"
     			$nestedData['id_slide'] = $r->id_slide;
-    			$nestedData['name'] = $r->name."<br><a class='btn' href='".route('admin.slide.sanpham',['id'=>$r->id_slide])."'>Xem các sản phẩm</a>";
+                $nestedData['name'] = $r->name;
+                if($r->url==null){
+                    $nestedData['name'].="<br><a class='btn' href='".route('admin.slidesanpham.index',['name'=>$arItem[$r->id_type],'name_su_kien'=>$r->code])."'>Xem các sản phẩm</a>";
+                }
                 $nestedData['start'] = $r->start;
                 $nestedData['finish'] = $r->finish;
                 $nestedData['picture'] ="<img style='width:200px;' src='/storage/app/files/{$r->picture}'>";
@@ -175,16 +177,31 @@ class SlideController extends Controller
         }else{
             $picture=$req->picture;
         }
+        $start=$req->start_day." ".$req->start_time;
+        $finish=$req->finish_day." ".$req->finish_time;
         $arItem=[
             "name"=>$req->name,
             "code"=>str_slug($req->name),
-            "start"=>$req->start_day." ".$req->start_time,
-            "finish"=>$req->finish_day." ".$req->finish_time,
+            "start"=>$start,
+            "finish"=>$finish,
             "picture"=>$picture,
             "content"=>$req->content,
             "url"=>$req->url
         ];
         $this->slide->edit($id,$arItem);
+        $objItems=DB::table("slide_sp")->where("id_slide",$id)->get();
+        foreach($objItems as $item){
+            if($item->id_hinhthuc==1){
+                continue;
+            }
+            $arId[]=$item->id_sp;
+        }
+        if(isset($arId)){
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $date_start=strtotime($start);
+            $date_finish=strtotime($finish);
+            DB::table("sanpham")->whereIn('id_sp',$arId)->update(['date_start'=>$date_start,'date_finish'=>$date_finish]);
+        }
         return redirect()->back()->with(['msg'=>'Sửa sự kiện thành công !']);
     }
     public function del($id){
@@ -193,11 +210,24 @@ class SlideController extends Controller
     public function active(Request $req){
         $active=$req->active;
         $id_slide=$req->id_slide;
+        $objItems=DB::table("slide_sp")->where("id_slide",$id_slide)->get();
+        foreach($objItems as $item){
+            if($item->id_hinhthuc==1){
+                continue;
+            }
+            $arId[]=$item->id_sp;
+        }
         if($active==0){
             DB::table('slide')->where('id_slide',$id_slide)->update(['active'=>1]);
+            if(isset($arId)){
+                DB::table("sanpham")->whereIn('id_sp',$arId)->update(['active'=>1]);
+            }
             return "<a onclick='active(1,{$id_slide})' class='btn btn-primary'>Hiển Thị</a>";
         }else{
             DB::table('slide')->where('id_slide',$id_slide)->update(['active'=>0]);
+            if(isset($arId)){
+                DB::table("sanpham")->whereIn('id_sp',$arId)->update(['active'=>0]);
+            }
             return "<a onclick='active(0,{$id_slide})' class='btn btn-danger'>Đã ẩn</a>";
         }
     }

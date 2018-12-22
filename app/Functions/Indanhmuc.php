@@ -231,3 +231,14 @@ function editString($text) {
 	
 	return $text;
 }
+
+function getId($data,$parent_id,$arId){
+	foreach($data as $stt =>$d){
+		if($d->parent_id==$parent_id){
+			$arId[]=$d->id_cat;
+			unset($data[$stt]);
+			getId($data,$d->id_cat,$arId);
+		}
+	}
+	Session::put("arId",$arId);
+}

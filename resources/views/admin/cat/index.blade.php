@@ -23,14 +23,9 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <script type="text/javascript">
     function message(id){
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
         $.ajax({
             url: '{{route('admin.cat.check')}}',
-            type: 'post',
+            type: 'get',
             cache: false,
             data: {
                 id_cat:id,

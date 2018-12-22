@@ -20,7 +20,6 @@
     <link href="{{$urlAdmin}}/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLES-->
     <link href="{{$urlAdmin}}/css/custom.css" rel="stylesheet" />
-    <script src="{{$urlAdmin}}/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />

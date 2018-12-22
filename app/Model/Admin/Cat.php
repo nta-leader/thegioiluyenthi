@@ -30,9 +30,6 @@ class Cat extends Model
     	$this->xoa($objItems,$id);
         $sanpham= new Sanpham();
         $sanpham->del_cat($id);
-        
-        $thuoctinh=new Thuoctinh();
-        $thuoctinh->del($id);
     	return $this->where('id_cat',$id)->delete();
     }
     public function xoa($data,$parent_id){
@@ -42,10 +39,7 @@ class Cat extends Model
                 $sanpham= new Sanpham();
                 $sanpham->del_cat($id_cat);
 
-                $thuoctinh=new Thuoctinh();
-                $thuoctinh->del($id_cat);
     			$this->where('id_cat',$id_cat)->delete();
-
     			$this->xoa($data,$id_cat);
     		}
     	}
