@@ -81,9 +81,9 @@ class CatController extends Controller
 	}
 	public function muanhieu(Sanpham $sanpham){
 		$name_cat=[
-			"namecat"=>"Giảm giá",
+			"namecat"=>"Mua nhiều",
 			"id_cat"=>"0",
-			"search"=>'Giảm giá'
+			"search"=>'Mua nhiều'
 		];
 		$objItems=$sanpham->muanhieu_all();
 		return view('shop.cat.index',compact('objItems','name_cat'));

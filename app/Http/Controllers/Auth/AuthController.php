@@ -120,7 +120,7 @@ class AuthController extends Controller
     			'password'=>bcrypt($password),
 				'fullname'=>$fullname,
 				'email'=>$email,
-				'facebook.com'=>$facebook,
+				'facebook'=>$facebook,
 				'phone'=>$phone,
 				'address'=>$address,
 				'money'=>0,

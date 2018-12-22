@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Shop;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Admin\Sanpham;
+use App\Model\Shop\Sanpham;
 use App\Http\Requests\Dathang;
 use DB;
 use Auth;
@@ -16,6 +16,13 @@ class CartController extends Controller
     }
     public function add(Request $req){
         $id_sp=$req->id_sp;
+        $check=$this->Sanpham->getItem($id_sp);
+        if($check==null){
+            $error=1;
+            $soluong=0;
+            $tongtien=0;
+            return view('shop.cart.add',compact('soluong','tongtien','error'));
+        }
         if($req->session()->has('cart')){
             $cart=$req->session()->get('cart');
             if(isset($cart[$id_sp])){

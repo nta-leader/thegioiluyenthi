@@ -1,5 +1,12 @@
 <?php
 Route::namespace('Auth')->group(function(){
+	Route::get("time",function(){
+		date_default_timezone_set('Asia/Ho_Chi_Minh');
+		$t=time();
+		echo($t . "<br>");
+		echo strtotime(date('2018-12-06 10:10:59'))."<br>";
+		echo(date('Y-m-d H:i:s',$t));
+	});
 	Route::get('/login',[
 		'uses'=>'AuthController@login',
 		'as'=>'auth.login'
@@ -224,7 +231,7 @@ Route::namespace('Admin')->prefix('admincp')->middleware('auth')->group(function
 			'uses'=>'CatController@index',
 			'as'=>'admin.cat.index'
 		]);
-		Route::post('check',[
+		Route::get('check',[
 			'uses'=>'CatController@check',
 			'as'=>'admin.cat.check'
 		]);
@@ -423,10 +430,6 @@ Route::namespace('Admin')->prefix('admincp')->middleware('auth')->group(function
 			'uses'=>'SlideController@index',
 			'as'=>'admin.slide.edit'
 		]);
-		Route::get('san-pham/{id}',[
-			'uses'=>'SlideController@index',
-			'as'=>'admin.slide.sanpham'
-		]);
 		Route::get('active/an-hien',[
 			'uses'=>'SlideController@active',
 			'as'=>'admin.slide.active'
@@ -451,26 +454,35 @@ Route::namespace('Admin')->prefix('admincp')->middleware('auth')->group(function
 			'uses'=>'SlideController@postEdit',
 			'as'=>'admin.slide.postEdit'
 		]);
-		/*Route::get('left-slide',[
-			'uses'=>'SlideController@index',
-			'as'=>'admin.slide.left_slide'
+		//slide san pham
+		Route::get('{name}/{name_su_kien}/index',[
+			'uses'=>'SlideSanphamController@index',
+			'as'=>'admin.slidesanpham.index'
 		]);
-		Route::get('bottom-slide',[
-			'uses'=>'SlideController@index',
-			'as'=>'admin.slide.bottom_slide'
+		Route::post('{name}/{name_su_kien}/{id}',[
+			'uses'=>'SlideSanphamController@view',
+			'as'=>'admin.slidesanpham.view'
 		]);
-		Route::get('tieu-bieu-slide',[
-			'uses'=>'SlideController@index',
-			'as'=>'admin.slide.tieubieu_slide'
+		Route::get('{name}/{name_su_kien}/{id}/add',[
+			'uses'=>'SlideSanphamController@add',
+			'as'=>'admin.slidesanpham.add'
 		]);
-		Route::post('active',[
-			'uses'=>'SlideController@active',
-			'as'=>'admin.slide.active'
+		Route::post('slide-san-pham-add/{id}',[
+			'uses'=>'SlideSanphamController@postAdd',
+			'as'=>'admin.slidesanpham.postadd'
 		]);
-		Route::post('timkiem',[
-			'uses'=>'SlideController@timkiem',
-			'as'=>'admin.slide.timkiem'
-		]);*/
+		Route::get('list/san-pham',[
+			'uses'=>'SlideSanphamController@listsp',
+			'as'=>'admin.slidesanpham.listsp'
+		]);
+		Route::get('option/hinhthuc',[
+			'uses'=>'SlideSanphamController@hinhthuc',
+			'as'=>'admin.slidesanpham.hinhthuc'
+		]);
+		Route::get('san-pham/del-{id}',[
+			'uses'=>'SlideSanphamController@del',
+			'as'=>'admin.slidesanpham.del'
+		]);
 	});
 	Route::prefix('contact')->group(function(){
 		Route::get('index',[

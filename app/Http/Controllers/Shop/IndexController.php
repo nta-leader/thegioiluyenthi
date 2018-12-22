@@ -11,7 +11,6 @@ class IndexController extends Controller
 {
     public  function index(Sanpham $sanpham,Cat $cat,Slide $slide){
     	$objItems_giamgia=$sanpham->get_giamgia(10);
-    	$random_giamgia=$sanpham->get_giamgia_random(5);
     	$objItems_muanhieu=$sanpham->get_muanhieu(10);
     	$objCats=$cat->getList_cha();
     	$objItems=[];
@@ -31,6 +30,6 @@ class IndexController extends Controller
 		$objSlide->left=$slide->left();
 		$objSlide->bottom=$slide->bottom();
 		$objSlide->tieubieu=$slide->tieubieu();
-    	return view('shop.index.index',compact('objItems_giamgia','random_giamgia','objItems_muanhieu','objItems','objSlide'));
+    	return view('shop.index.index',compact('objItems_giamgia','objItems_muanhieu','objItems','objSlide'));
     }
 }

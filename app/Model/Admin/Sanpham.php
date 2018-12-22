@@ -13,10 +13,10 @@ class Sanpham extends Model
     protected $primaryKey="id_sp";
     public $timestamps=false;
     public function getList(){
-    	return DB::table('sanpham as sp')->join('cat as c','sp.id_cat','=','c.id_cat')->orderBy('sp.id_sp','DESC')->paginate(10);
+    	return DB::table('sanpham as sp')->join('cat as c','sp.id_cat','=','c.id_cat')->where('sp.slide',0)->orderBy('sp.id_sp','DESC')->paginate(10);
     }
     public function getList2($parent_id,$arItem){
-    	return DB::table('sanpham as sp')->join('cat as c','sp.id_cat','=','c.id_cat')->whereIn('sp.id_cat',$arItem)->orderBy('sp.id_sp','DESC')->paginate(10);
+    	return DB::table('sanpham as sp')->join('cat as c','sp.id_cat','=','c.id_cat')->whereIn('sp.id_cat',$arItem)->where('sp.slide',0)->orderBy('sp.id_sp','DESC')->paginate(10);
     }
     public function add($arItem){
     	return $this->insertGetId($arItem);
@@ -55,6 +55,7 @@ class Sanpham extends Model
         return DB::table('sanpham as sp')
         ->join('cat as c','sp.id_cat','=','c.id_cat')
         ->where('sp.namesp','like','%'.$key.'%')
+        ->where('sp.slide',0)
         ->orderBy('sp.id_sp','DESC')
         ->get();
     }
@@ -63,21 +64,12 @@ class Sanpham extends Model
         ->join('cat as c','sp.id_cat','=','c.id_cat')
         ->whereIn('sp.id_cat',$arItem)
         ->where('sp.namesp','like','%'.$key.'%')
+        ->where('sp.slide',0)
         ->orderBy('sp.id_sp','DESC')
         ->get();
-    }
-
-    //phan slide
-    public function getSlide(){
-        return $this->where('active',1)->orderBy('id_sp','DESC')->paginate(5);
-    }
-    public function timkiemSlide($key){
-        return $this->where('namesp','like','%'.$key.'%')->orderBy('id_sp','DESC')->take(20)->get();
     }
     //check id_cat khi xóa có bao nhiêu sp
     public function getList_cat($arItem){
         return $this->whereIn('id_cat',$arItem)->count();
     }
-
-    
 }
